@@ -75,7 +75,7 @@ func StringSum(input string) (output string, err error) {
 	}
 
 	// Добавляем в х хвост строки
-	value, err = strconv.Atoi(string(a[y : len(a)-1]))
+	value, err = strconv.Atoi(string(a[y:len(a)]))
 	if err != nil {
 		err = fmt.Errorf("%q", err)
 		return
