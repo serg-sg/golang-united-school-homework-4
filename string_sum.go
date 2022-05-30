@@ -49,7 +49,7 @@ func StringSum(input string) (output string, err error) {
 
 	// Если длина input равна 0, то вернуть ошибку
 	if len(a) == 0 {
-		err = fmt.Errorf("%q", errorEmptyInput)
+		err = fmt.Errorf("%w", errorEmptyInput)
 		return
 	}
 
@@ -68,7 +68,7 @@ func StringSum(input string) (output string, err error) {
 				x = append(x, value)
 				y = i
 			} else {
-				err = fmt.Errorf("%q", err)
+				err = fmt.Errorf("%w", err)
 				return
 			}
 		}
@@ -77,14 +77,14 @@ func StringSum(input string) (output string, err error) {
 	// Добавляем в х хвост строки
 	value, err = strconv.Atoi(string(a[y:len(a)]))
 	if err != nil {
-		err = fmt.Errorf("%q", err)
+		err = fmt.Errorf("%w", err)
 		return
 	}
 	x = append(x, value)
 
 	// Проверяем длину среза х, если не равно 2, то это ошибка
 	if len(x) != 2 {
-		err = fmt.Errorf("%q", errorNotTwoOperands)
+		err = fmt.Errorf("%w", errorNotTwoOperands)
 		return
 	}
 
